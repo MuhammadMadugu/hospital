@@ -16,9 +16,13 @@ $payment_id     = intval($data['payment_id'] ?? 0);
 $amount         = floatval($data['amount'] ?? 0);
 $discount       = floatval($data['discount'] ?? 0);
 $net_amount     = floatval($data['net'] ?? 0);
+<<<<<<< HEAD
 $payment_method = !empty($data['payment_method']) ? sanitize($data['payment_method']) : '';
  $reciept_num = generateReceiptNumber($db);
 
+=======
+$payment_method = sanitize($data['payment_method']);
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 if ($payment_id <= 0 || $net_amount <= 0 || empty($payment_method)) {
     echo json_encode(['success' => false, 'message' => 'Invalid payment data']);
@@ -37,8 +41,11 @@ if ($payQ->num_rows == 0) {
 $payment = $payQ->fetch_assoc();
 $patient_id = $payment['patient_id'];
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 if(($_SESSION['type']!= 0) AND ($payment['amount'] != $amount OR $payment['net_amount']!=$net_amount OR $payment['discount']!=$discount)){
     echo json_encode(['success' => false, 'message' => 'An Error Occured']);
     exit;
@@ -54,6 +61,7 @@ if ($payment['status'] == 1) {
    UPDATE PAYMENT
 ========================= */
 $user_id = getId();
+<<<<<<< HEAD
 $sql = " UPDATE payments SET
     amount = '$amount',
     discount = '$discount',
@@ -69,6 +77,20 @@ $sql = " UPDATE payments SET
                   END
 WHERE id = '$payment_id';";
 $update = $db->query($sql);
+=======
+
+$update = $db->query("
+    UPDATE payments SET
+        amount = '$amount',
+        discount = '$discount',
+        net_amount = '$net_amount',
+        `payment-method` = '$payment_method',
+        payment_date = NOW(),
+        accountant_id = '$user_id',
+        status = 1
+    WHERE id = '$payment_id'
+");
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 if (!$update) {
     echo json_encode([
@@ -83,6 +105,7 @@ if (!$update) {
    POST-PAYMENT ACTIONS
 ========================= */
 
+<<<<<<< HEAD
 // If DRUG payment → mark patient_drugs as paid + mark admission billing drug items
 if($payment['purpose'] == 2){
 
@@ -95,6 +118,17 @@ if($payment['purpose'] == 2){
   // Also mark admission billing drug items as paid (for admitted patients)
   $db->query("UPDATE admission_billing SET paid = 1 WHERE billing_type = 2 AND reference_id = '$payment_id'");
 
+=======
+// If DRUG payment → mark patient_drugs as paid
+if($payment['purpose'] == 2){
+  
+  $db->query("
+    UPDATE patient_drugs 
+    SET status = 1 
+    WHERE payment_id = '$payment_id'
+");
+
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 }else if($payment['purpose'] == 3){
   
@@ -122,13 +156,18 @@ $db->query("
 
 
 }else if($payment['purpose'] == 1){
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
   $db->query("
     UPDATE users
     SET status = 1
     WHERE id = '$patient_id'
 ");
 
+<<<<<<< HEAD
 }else if($payment['purpose'] == 4){
     // Admission billing item payment - mark the billing item as paid
     $db->query("UPDATE admission_billing SET paid = 1 WHERE payment_id = '$payment_id'");
@@ -148,6 +187,8 @@ $db->query("
     if ($appointment_id > 0) {
         $db->query("UPDATE appointments SET status = 0 WHERE id = '$appointment_id' AND status = -1");
     }
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 }
 
 
@@ -155,6 +196,11 @@ $db->query("
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 echo json_encode([
     'success' => true,
     'message' => 'Payment saved successfully'

@@ -33,10 +33,17 @@ $patient_test_id -= 1200;
    FETCH PATIENT TEST
 ========================= */
 $sql = "
+<<<<<<< HEAD
     SELECT *
     FROM test_lists
     WHERE id = '$patient_test_id'
       AND (status = 3 OR status = 4 OR status = 5 OR status = 6)
+=======
+    SELECT * 
+    FROM test_lists 
+    WHERE id = '$patient_test_id' AND
+    status = 3 OR status = 4 OR status = 5 OR status = 6 
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
       AND paid = 1
 ";
 $run = $db->query($sql);
@@ -127,10 +134,16 @@ while ($row = $run->fetch_assoc()) {
 
 
 $sql = "
+<<<<<<< HEAD
     SELECT pt.user_id, pt.appointment_id, a.patient_id AS app_patient_id, pay.note AS payment_note
     FROM patient_test pt
     LEFT JOIN appointments a ON pt.appointment_id = a.id AND pt.appointment_id > 0
     LEFT JOIN payments pay ON pt.payment_id = pay.id
+=======
+    SELECT a.patient_id
+    FROM patient_test pt
+    JOIN appointments a ON pt.appointment_id = a.id
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     WHERE pt.id = '$patient_test'
     LIMIT 1
 ";
@@ -144,12 +157,16 @@ if ($run->num_rows == 0) {
 }
 
 $row = $run->fetch_assoc();
+<<<<<<< HEAD
 $patient_id = ($row['appointment_id'] > 0) ? $row['app_patient_id'] : $row['user_id'];
 $is_walkin = ($patient_id == 0);
 $walkin_name = '';
 if ($is_walkin && !empty($row['payment_note'])) {
     $walkin_name = str_replace('POS Walk-In: ', '', $row['payment_note']);
 }
+=======
+$patient_id = $row['patient_id'];
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 
 ?>
@@ -157,7 +174,11 @@ if ($is_walkin && !empty($row['payment_note'])) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <title><?= APP_NAME ?> | Upload Results</title>
+=======
+<title><?= APP_NAME ?> | Drug Categories</title>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../styles/styles.css">
 <style>
@@ -412,11 +433,19 @@ if ($is_walkin && !empty($row['payment_note'])) {
                     <table class="table table-bordered table-sm mb-0">
                         <tr>
                             <th width="30%">Name</th>
+<<<<<<< HEAD
                             <td><?= $is_walkin ? htmlspecialchars($walkin_name) . ' <small style="color:#e67e22;font-weight:600;">(Walk-in)</small>' : get('name','users',$patient_id) ?></td>
                         </tr>
                         <tr>
                             <th>Email</th>
                             <td><?= $is_walkin ? '-' : get('email','users',$patient_id) ?></td>
+=======
+                            <td><?= get('name','users',$patient_id) ?></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td><?= get('email','users',$patient_id) ?></td>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                         </tr>
                         <tr>
                             <th>Lab Number</th>

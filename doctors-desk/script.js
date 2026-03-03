@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+alert();
+
+
+
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 document.getElementById('labTestSearch').addEventListener('keyup', function () {
     let query = this.value.toLowerCase();
     let tests = document.querySelectorAll('#labTestsGrid .checkbox-label');
@@ -401,6 +408,7 @@ function confirmLabSend() {
     });
 }
 
+<<<<<<< HEAD
 // ============ RADIOLOGY SCAN FUNCTIONS ============
 
 let selectedScans = [];
@@ -535,6 +543,8 @@ function confirmScanSend() {
     });
 0}
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 // Toast Notification Function
 function showToast(type, title, message) {
     const toastContainer = document.getElementById('toastContainer');
@@ -600,17 +610,26 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape') {
             closePharmacyModal();
             closeLabModal();
+<<<<<<< HEAD
             closeScanModal();
         }
     });
 
+=======
+        }
+    });
+    
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     // Close modals when clicking outside
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
         overlay.addEventListener('click', function(e) {
             if (e.target === this) {
                 if (this.id === 'pharmacyModal') closePharmacyModal();
                 if (this.id === 'labModal') closeLabModal();
+<<<<<<< HEAD
                 if (this.id === 'scanModal') closeScanModal();
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
             }
         });
     });

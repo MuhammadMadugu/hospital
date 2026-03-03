@@ -17,7 +17,11 @@
    		if(password_verify($password, $hash)){
           $_SESSION['full_name'] = $info['name'];
           $_SESSION['email'] = $email;
+<<<<<<< HEAD
           $_SESSION['phone'] = $info['phone'];
+=======
+          $_SESSION['phone'] = $phone_num;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
           $_SESSION['type'] = $info['type'];
           $_SESSION['pic'] = $info['pic'];
           header('location:../index.php');

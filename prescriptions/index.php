@@ -382,7 +382,10 @@ $result = $db->query($sql);
             </thead>
             <tbody>
                 <?php $i = $offset + 1; while ($row = $result->fetch_assoc()): ?>
+<<<<<<< HEAD
                 <tr>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                        <td><?= $i++ ?></td>
     <td><?= htmlspecialchars($row['patient_name']) ?></td>
     <td><?= htmlspecialchars($row['hospital_num']) ?></td>
@@ -396,7 +399,10 @@ $result = $db->query($sql);
             View Drugs
         </span>
     </td>
+<<<<<<< HEAD
 </tr>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                 <?php endwhile; ?>
             </tbody>
         </table>

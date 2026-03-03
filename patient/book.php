@@ -13,7 +13,10 @@ if (!isLoggedIn() || ($_SESSION['type'] != 0 AND $_SESSION['type'] != 5)) {
 ========================= */
 $patient_id = intval($_GET['patient_id'] ?? 0);
 $user_id    = getId(); // staff/admin booking
+<<<<<<< HEAD
 $reciept_num = generateReceiptNumber($db);
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 if ($patient_id <= 0) {
     $_SESSION['error'] = 'Invalid Patient';
@@ -25,10 +28,17 @@ if ($patient_id <= 0) {
    CONFIRM PATIENT EXISTS
 ========================= */
 $patientCheck = $db->query("
+<<<<<<< HEAD
     SELECT id, name, scheme_type
     FROM users
     WHERE id='$patient_id'
     AND type=1
+=======
+    SELECT id, name 
+    FROM users 
+    WHERE id='$patient_id' 
+    AND type=1 
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     AND status=1
 ");
 
@@ -44,10 +54,17 @@ $patient = $patientCheck->fetch_assoc();
    CHECK ACTIVE APPOINTMENT
 ========================= */
 $activeCheck = $db->query("
+<<<<<<< HEAD
     SELECT id
     FROM appointments
     WHERE patient_id='$patient_id'
     AND (status=-1 OR status=0 OR status=1)
+=======
+    SELECT id 
+    FROM appointments 
+    WHERE patient_id='$patient_id' 
+    AND status=0
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 ");
 
 if ($activeCheck->num_rows > 0) {
@@ -57,6 +74,7 @@ if ($activeCheck->num_rows > 0) {
 }
 
 /* =========================
+<<<<<<< HEAD
    GET CONSULTATION FEE
 ========================= */
 $consultation_fee = 0;
@@ -77,10 +95,13 @@ if (!empty($patient['scheme_type'])) {
 }
 
 /* =========================
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
    BOOK APPOINTMENT
 ========================= */
 $date_appointed = date('Y-m-d H:i:s');
 
+<<<<<<< HEAD
 if ($consultation_fee > 0) {
     // Fee required: create appointment as pending payment (status = -1)
     $sql = "
@@ -138,6 +159,24 @@ if ($consultation_fee > 0) {
     } else {
         $_SESSION['error'] = 'Failed to book appointment';
     }
+=======
+$sql = "
+    INSERT INTO appointments (
+        patient_id,
+        date_appointed,
+        status
+    ) VALUES (
+        '$patient_id',
+        '$date_appointed',
+        0
+    )
+";
+
+if ($db->query($sql)) {
+    $_SESSION['success'] = 'Appointment booked successfully';
+} else {
+    $_SESSION['error'] = 'Failed to book appointment';
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 }
 
 header("Location: ../appointments/index.php");

@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Feb 24, 2026 at 12:11 PM
+=======
+-- Generation Time: Feb 17, 2026 at 12:09 PM
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -24,6 +28,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `admissions`
 --
 
@@ -103,6 +108,8 @@ INSERT INTO `admission_reports` (`id`, `admission_id`, `nurse_id`, `report`, `cr
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 -- Table structure for table `appointments`
 --
 
@@ -121,6 +128,7 @@ CREATE TABLE `appointments` (
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+<<<<<<< HEAD
 --
 -- Dumping data for table `appointments`
 --
@@ -130,6 +138,8 @@ INSERT INTO `appointments` (`id`, `patient_id`, `room_id`, `nurse_id`, `doctor_i
 (4, 77, 0, 0, 1, '2026-02-19 15:26:28', NULL, '', '\'\'', '', '', 2),
 (5, 77, 4, 1, 1, '2026-02-23 14:52:54', '2026-02-23 23:13:23', '', '\'What is wrong with you ', 'Yes ooooo                       ', '', 2);
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 -- --------------------------------------------------------
 
 --
@@ -146,6 +156,7 @@ CREATE TABLE `assign_doctors` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+<<<<<<< HEAD
 --
 -- Dumping data for table `assign_doctors`
 --
@@ -154,6 +165,8 @@ INSERT INTO `assign_doctors` (`id`, `doctor_id`, `room_id`, `assigned_at`, `ende
 (3, 78, 5, '2026-02-19 15:02:09', NULL, 1, 1),
 (4, 79, 4, '2026-02-23 14:39:55', NULL, 1, 1);
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 -- --------------------------------------------------------
 
 --
@@ -227,12 +240,16 @@ CREATE TABLE `drug_list` (
 
 INSERT INTO `drug_list` (`id`, `drug_id`, `prescription`, `quantity`, `amount`, `patient_drugs_id`) VALUES
 (4, 1, '2 each', 2, 600, 6),
+<<<<<<< HEAD
 (5, 1, '2 times', 3, 900, 7),
 (6, 2, 'two tablets', 1, 450, 8),
 (7, 2, '1', 1, 450, 9),
 (8, 1, 'yap', 2, 600, 26),
 (9, 2, '2', 2, 900, 27),
 (10, 2, '2', 2, 900, 28);
+=======
+(5, 1, '2 times', 3, 900, 7);
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -293,8 +310,11 @@ CREATE TABLE `hospital_details` (
   `logo` text NOT NULL,
   `website` text NOT NULL,
   `year` text NOT NULL,
+<<<<<<< HEAD
   `consultation_fee` float NOT NULL DEFAULT 0,
   `review_window_days` int(11) NOT NULL DEFAULT 0,
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -302,8 +322,13 @@ CREATE TABLE `hospital_details` (
 -- Dumping data for table `hospital_details`
 --
 
+<<<<<<< HEAD
 INSERT INTO `hospital_details` (`id`, `name`, `email`, `phone`, `address`, `logo`, `website`, `year`, `consultation_fee`, `review_window_days`, `user_id`) VALUES
 (1, 'Godiya Hospital', 'gh@gmail.com', '09065478965', 'Badariyya', 'hospital_69971502c6ae63.15769315.png', '', '2005', 500, 5, 1);
+=======
+INSERT INTO `hospital_details` (`id`, `name`, `email`, `phone`, `address`, `logo`, `website`, `year`, `user_id`) VALUES
+(1, 'Godiya Hospital', 'gh@gmail.com', '09065478965', 'Badariyya', 'hospital_6965711592a560.19366332.jpeg', '', '2005', 1);
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -1105,6 +1130,7 @@ CREATE TABLE `patient_drugs` (
 
 INSERT INTO `patient_drugs` (`id`, `priority`, `notes`, `delivery_option`, `appointment_id`, `payment_id`, `user_id`, `status`, `collection_date`, `created_date`) VALUES
 (6, 'normal', '', 'pickup', 1, 10, 1, 2, '2026-01-28 01:46:37', '2026-01-24 14:44:32'),
+<<<<<<< HEAD
 (7, 'normal', '', 'pickup', 2, 13, 1, 1, NULL, '2026-01-25 23:09:03'),
 (8, 'normal', '', 'pickup', 3, 17, 1, 1, NULL, '2026-02-19 15:06:56'),
 (9, 'normal', '', 'pickup', 5, 27, 79, 0, NULL, '2026-02-23 14:59:55'),
@@ -1159,6 +1185,9 @@ INSERT INTO `patient_scan` (`id`, `appointment_id`, `patient_id`, `user_id`, `pa
 (3, 0, 77, 1, 48, 'routine', 'hhh', 1, 0, '', '', '2026-02-23 16:05:56'),
 (4, 0, 0, 1, 49, 'routine', 'get', 1, 1, 'Madugu', '09064057954', '2026-02-23 16:51:36'),
 (5, 5, 77, 1, 50, 'routine', '', 0, 0, '', '', '2026-02-23 23:13:59');
+=======
+(7, 'normal', '', 'pickup', 2, 13, 1, 1, NULL, '2026-01-25 23:09:03');
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -1184,8 +1213,12 @@ CREATE TABLE `patient_test` (
 --
 
 INSERT INTO `patient_test` (`id`, `appointment_id`, `user_id`, `payment_id`, `priority`, `specimen_collection`, `preferred_date`, `preferred_time`, `status`, `date_request`) VALUES
+<<<<<<< HEAD
 (4, 1, 67, 11, 'routine', '{\"blood\":1,\"urine\":0,\"fasting\":0}', '2026-01-24', 'asap', 0, '2026-01-30 15:36:32'),
 (5, 0, 77, 47, 'routine', '', '2026-02-23', '15:39:09', 1, '2026-02-23 15:39:09');
+=======
+(4, 1, 67, 11, 'routine', '{\"blood\":1,\"urine\":0,\"fasting\":0}', '2026-01-24', 'asap', 0, '2026-01-30 15:36:32');
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -1209,6 +1242,7 @@ INSERT INTO `patient_vitals` (`id`, `appointment_id`, `vital_id`, `vital_value`,
 (2, 1, 1, '20', 0),
 (3, 2, 3, '24', 0),
 (4, 2, 2, '76', 0),
+<<<<<<< HEAD
 (5, 2, 1, '30', 0),
 (6, 3, 3, '10', 0),
 (7, 3, 2, '234', 0),
@@ -1216,6 +1250,9 @@ INSERT INTO `patient_vitals` (`id`, `appointment_id`, `vital_id`, `vital_value`,
 (9, 5, 3, '101', 0),
 (10, 5, 2, '202', 0),
 (11, 5, 1, '12', 0);
+=======
+(5, 2, 1, '30', 0);
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -1252,6 +1289,7 @@ INSERT INTO `payments` (`id`, `patient_id`, `appointment_id`, `accountant_id`, `
 (12, 72, 0, 1, 1, 2500, 5, 2375, 'Cash', '2026-01-25 22:43:56', '2026-01-25 23:03:04', 1, 'Patient registration payment', 'RCT-20260125-291782', 1),
 (13, 72, 2, 1, 1, 900, 5, 855, 'Card', '2026-01-25 23:09:03', '2026-01-25 23:13:37', 2, 'Drug Purchase Payment', 'RCT-20260125-915868', 1),
 (14, 75, 0, 0, 1, 6000, 10, 5400, '', '2026-02-05 15:03:25', NULL, 1, 'Patient registration payment', 'RCT-20260205-358303', 0),
+<<<<<<< HEAD
 (15, 76, 0, 0, 1, 6000, 10, 5400, '', '2026-02-17 11:49:30', NULL, 1, 'Patient registration payment', 'RCT-20260217-458724', 0),
 (16, 77, 0, 1, 1, 6000, 10, 5400, 'Cash', '2026-02-19 14:45:09', '2026-02-19 14:45:30', 1, 'Patient registration payment', 'RCT-20260219-976679', 1),
 (17, 77, 3, 1, 1, 450, 10, 405, 'Cash', '2026-02-19 15:06:56', '2026-02-19 15:07:28', 2, 'Drug Purchase Payment', 'RCT-20260219-712779', 1),
@@ -1288,6 +1326,9 @@ INSERT INTO `payments` (`id`, `patient_id`, `appointment_id`, `accountant_id`, `
 (48, 77, 0, 1, 1, 2000, 10, 1800, 'Card', '2026-02-23 16:05:56', '2026-02-23 16:05:56', 5, 'POS Radiology Scan', 'RCT-20260223-191110', 1),
 (49, 0, 0, 1, 1, 2000, 0, 2000, 'Card', '2026-02-23 16:51:36', '2026-02-23 16:51:36', 5, 'POS Walk-In: Madugu | 09064057954', 'RCT-20260223-761444', 1),
 (50, 77, 5, 0, 1, 2000, 10, 1800, '', '2026-02-23 23:13:58', NULL, 5, 'Radiology Scan Payment', 'RCT-20260223-789910', 0);
+=======
+(15, 76, 0, 0, 1, 6000, 10, 5400, '', '2026-02-17 11:49:30', NULL, 1, 'Patient registration payment', 'RCT-20260217-458724', 0);
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -1327,8 +1368,13 @@ CREATE TABLE `pharmacy_stock` (
 --
 
 INSERT INTO `pharmacy_stock` (`id`, `drug`, `quantity`) VALUES
+<<<<<<< HEAD
 (1, 1, 13),
 (2, 2, 44);
+=======
+(1, 1, 15),
+(2, 2, 50);
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -1349,9 +1395,13 @@ CREATE TABLE `results` (
 
 INSERT INTO `results` (`id`, `parameter_id`, `patient_test_id`, `answer`) VALUES
 (1, 1, 58, '0.2'),
+<<<<<<< HEAD
 (2, 3, 58, '5.2'),
 (3, 1, 59, '0.2'),
 (4, 3, 59, '5.3');
+=======
+(2, 3, 58, '5.2');
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -1408,6 +1458,7 @@ INSERT INTO `rooms` (`id`, `room_name`, `room_type`, `bed_space`, `room_price`, 
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `scans`
 --
 
@@ -1494,6 +1545,8 @@ INSERT INTO `scan_results` (`id`, `scan_list_id`, `clinical_info`, `findings`, `
 -- --------------------------------------------------------
 
 --
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 -- Table structure for table `schemes`
 --
 
@@ -1650,8 +1703,12 @@ CREATE TABLE `test_lists` (
 --
 
 INSERT INTO `test_lists` (`id`, `patient_test_id`, `test_id`, `result_releaser_id`, `status`, `asker_id`, `sample_collector`, `acknowleger_id`, `date_request`, `sample_collection_date`, `date_acknowledge`, `date_of_result`, `notes`, `invoice_id`, `labno`, `reason`, `paid`, `amount`, `payment_confirmer`, `payment_date`, `verifier`, `verified_date`, `collector`, `collected_date`, `hos_no`, `dr_name`, `clinical`) VALUES
+<<<<<<< HEAD
 (58, 4, 1, 0, 7, 0, 1, 1, '2026-01-24', '2026-01-30 19:02:39', '2026-01-30', '2026-01-30', 'good resyult', 0, '', '', 1, 0, 0, NULL, 0, '2026-01-30 00:00:00', 'oga', '2026-01-31', '', '', ''),
 (59, 5, 1, 1, 5, 1, 1, 1, '2026-02-23', '2026-02-23 18:14:53', '2026-02-23', '2026-02-23', 'yyyyyy', 0, '', '', 1, 3000, 0, NULL, 1, '2026-02-23 00:00:00', '', '', '', '', 'bbbbbbbbbbbbb');
+=======
+(58, 4, 1, 0, 7, 0, 1, 1, '2026-01-24', '2026-01-30 19:02:39', '2026-01-30', '2026-01-30', 'good resyult', 0, '', '', 1, 0, 0, NULL, 0, '2026-01-30 00:00:00', 'oga', '2026-01-31', '', '', '');
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -1698,12 +1755,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `userno`, `gender`, `category`, `dob`, `marital_status`, `password`, `department_id`, `user_id`, `type`, `status`, `pic`, `age`, `kin`, `state`, `lga`, `tribe`, `address`, `hospital_num`, `blood_group`, `genotype`, `allergies`, `chronic_condition`, `kin_phone`, `kin_relationship`, `file_type`, `scheme_type`, `family_id`) VALUES
+<<<<<<< HEAD
 (1, 'Muhammad ibrahim', 'admin@gmail.com', '08037244467', '', '1', 'Admin', '', '-1', '$2y$10$SiB4Qx5nY.1wgIW8uW/Lt.OSjaPljLgJePbeMonXoQgVE63rCiRim', 0, 0, 0, 1, 'E2heLY2900.jpeg', '', '', 0, 0, '', '', 0, '', '', '', '', '', '', 0, 0, 0),
 (77, 'Fatima Musa', 'Fati@gmail.com', '09064057929', '', 'Female', '', '2006-11-01', 'Married', '$2y$10$r63h6XmDWUHoLFne1wyY7OG/kOuB//rXU0cE30L2NBxtkEIBeNABO', 0, 1, 1, 1, '', '', 'Ibrahim abbare', 2, 36, 'Fulani', 'Sungari ', 553679, 'AB-', 'AS', '', '', '08037244467', 'Father', 2, 1, 0),
 (78, 'Mansur Isa', 'mansur@gmail.com', '09037816948', '006', '', '3', '', '', '$2y$10$4PkzRxCYAh0vNp307pGH6euEWn1tanhfMiORGSbelhn8TuuwneC7S', 0, 1, 3, 1, '', '', '', 0, 0, '', '', 0, '', '', '', '', '', '', 0, 0, 0),
 (79, 'Abdullahi Ibrahim', 'ibrahimmo2013@gmail.com', '08035598876', '007', '', '3', '', '', '$2y$10$zVmxeFwZH9q3r1Vfousc8uiXBA.VpES0DQcy30mYfy2O6CTMLFCfi', 0, 1, 3, 1, '', '', '', 0, 0, '', '', 0, '', '', '', '', '', '', 0, 0, 0),
 (80, 'Yunus', 'yunys@gmail.com', '09064057928', '008', '', '6', '', '', '$2y$10$ksA8Nvbu5gkG7IenK4VlAuIBmvpTYb.i7dnVkRnjawmqPbPvsjiAu', 0, 1, 6, 1, '', '', '', 0, 0, '', '', 0, '', '', '', '', '', '', 0, 0, 0),
 (81, 'Sharifa', 'sharifa@gmail.com', '08035598876', '010', '', '4', '', '', '$2y$10$UOZfDat0/beg9chxd0paUeDnAU9fBVAZTbuVCTGrDOlXbEwEBeig6', 0, 1, 4, 1, '', '', '', 0, 0, '', '', 0, '', '', '', '', '', '', 0, 0, 0);
+=======
+(1, 'Muhammad ibrahim', 'admin@gmail.com', '08037244467', '', '1', 'Admin', '', '-1', '$2y$10$SiB4Qx5nY.1wgIW8uW/Lt.OSjaPljLgJePbeMonXoQgVE63rCiRim', 0, 0, 0, 1, 'E2heLY2900.jpeg', '', '', 0, 0, '', '', 0, '', '', '', '', '', '', 0, 0, 0);
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 -- --------------------------------------------------------
 
@@ -1751,6 +1812,7 @@ INSERT INTO `wards` (`id`, `ward_name`, `status`) VALUES
 --
 
 --
+<<<<<<< HEAD
 -- Indexes for table `admissions`
 --
 ALTER TABLE `admissions`
@@ -1774,6 +1836,8 @@ ALTER TABLE `admission_reports`
   ADD KEY `idx_admission` (`admission_id`);
 
 --
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 -- Indexes for table `appointments`
 --
 ALTER TABLE `appointments`
@@ -1835,6 +1899,7 @@ ALTER TABLE `patient_drugs`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `patient_scan`
 --
 ALTER TABLE `patient_scan`
@@ -1843,6 +1908,8 @@ ALTER TABLE `patient_scan`
   ADD KEY `idx_patient_scan_patient` (`patient_id`);
 
 --
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 -- Indexes for table `patient_test`
 --
 ALTER TABLE `patient_test`
@@ -1891,6 +1958,7 @@ ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id`);
 
 --
+<<<<<<< HEAD
 -- Indexes for table `scans`
 --
 ALTER TABLE `scans`
@@ -1911,6 +1979,8 @@ ALTER TABLE `scan_results`
   ADD KEY `idx_scan_results_list` (`scan_list_id`);
 
 --
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 -- Indexes for table `schemes`
 --
 ALTER TABLE `schemes`
@@ -1963,6 +2033,7 @@ ALTER TABLE `wards`
 --
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT for table `admissions`
 --
 ALTER TABLE `admissions`
@@ -1985,12 +2056,22 @@ ALTER TABLE `admission_reports`
 --
 ALTER TABLE `appointments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+-- AUTO_INCREMENT for table `appointments`
+--
+ALTER TABLE `appointments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `assign_doctors`
 --
 ALTER TABLE `assign_doctors`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -2008,7 +2089,11 @@ ALTER TABLE `drugs`
 -- AUTO_INCREMENT for table `drug_list`
 --
 ALTER TABLE `drug_list`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `families`
@@ -2038,6 +2123,7 @@ ALTER TABLE `lgas`
 -- AUTO_INCREMENT for table `patient_drugs`
 --
 ALTER TABLE `patient_drugs`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
@@ -2045,24 +2131,39 @@ ALTER TABLE `patient_drugs`
 --
 ALTER TABLE `patient_scan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `patient_test`
 --
 ALTER TABLE `patient_test`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `patient_vitals`
 --
 ALTER TABLE `patient_vitals`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `pharmacy_activities`
@@ -2080,7 +2181,11 @@ ALTER TABLE `pharmacy_stock`
 -- AUTO_INCREMENT for table `results`
 --
 ALTER TABLE `results`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `result_parameters`
@@ -2095,6 +2200,7 @@ ALTER TABLE `rooms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+<<<<<<< HEAD
 -- AUTO_INCREMENT for table `scans`
 --
 ALTER TABLE `scans`
@@ -2113,6 +2219,8 @@ ALTER TABLE `scan_results`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 -- AUTO_INCREMENT for table `schemes`
 --
 ALTER TABLE `schemes`
@@ -2140,13 +2248,21 @@ ALTER TABLE `tests`
 -- AUTO_INCREMENT for table `test_lists`
 --
 ALTER TABLE `test_lists`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 --
 -- AUTO_INCREMENT for table `vitals`

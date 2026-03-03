@@ -664,6 +664,7 @@ textarea {
     .form-row {
         grid-template-columns: 1fr;
     }
+<<<<<<< HEAD
 
     .stats-grid-mini {
         grid-template-columns: 1fr;
@@ -820,4 +821,10 @@ textarea {
 }
 .sidebar-overlay {
     display: none;
+=======
+    
+    .stats-grid-mini {
+        grid-template-columns: 1fr;
+    }
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 }

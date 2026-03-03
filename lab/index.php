@@ -64,12 +64,19 @@ if (empty($start_date) && empty($end_date)) {
 ========================= */
 if (!empty($search)) {
     $where .= " AND (
+<<<<<<< HEAD
         t.name LIKE '%$search%'
+=======
+        t.name LIKE '%$search%' 
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
         OR ptl.labno LIKE '%$search%'
         OR u.name LIKE '%$search%'
         OR u.hospital_num LIKE '%$search%'
         OR u.phone LIKE '%$search%'
+<<<<<<< HEAD
         OR pay.note LIKE '%$search%'
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     )";
 }
 
@@ -81,10 +88,16 @@ $countSql = "
     FROM patient_test pt
     JOIN test_lists ptl ON pt.id = ptl.patient_test_id
     JOIN tests t ON ptl.test_id = t.id
+<<<<<<< HEAD
     LEFT JOIN appointments a ON pt.appointment_id = a.id AND pt.appointment_id > 0
     LEFT JOIN users u ON u.id = IF(pt.appointment_id > 0, a.patient_id, pt.user_id)
     LEFT JOIN payments pay ON pt.payment_id = pay.id
     WHERE 1=1 $where
+=======
+    JOIN appointments a ON pt.appointment_id = a.id
+    JOIN users u ON a.patient_id = u.id
+    $where
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 ";
 
 $totalRows  = $db->query($countSql)->fetch_assoc()['total'];
@@ -94,7 +107,11 @@ $totalPages = ceil($totalRows / $limit);
    FETCH TEST RECORDS
 ========================= */
 $sql = "
+<<<<<<< HEAD
     SELECT
+=======
+    SELECT 
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
         pt.id            AS patient_test_id,
         pt.appointment_id,
         pt.user_id,
@@ -131,18 +148,29 @@ $sql = "
         u.hospital_num,
 
         a.date_appointed,
+<<<<<<< HEAD
         COALESCE(a.patient_id, pt.user_id) AS patient_id,
 
         pay.note          AS payment_note
+=======
+        a.patient_id      AS patient_id
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
     FROM patient_test pt
     JOIN test_lists ptl ON pt.id = ptl.patient_test_id
     JOIN tests t ON ptl.test_id = t.id
+<<<<<<< HEAD
     LEFT JOIN appointments a ON pt.appointment_id = a.id AND pt.appointment_id > 0
     LEFT JOIN users u ON u.id = IF(pt.appointment_id > 0, a.patient_id, pt.user_id)
     LEFT JOIN payments pay ON pt.payment_id = pay.id
 
     WHERE 1=1 $where
+=======
+    JOIN appointments a ON pt.appointment_id = a.id
+    JOIN users u ON a.patient_id = u.id
+
+    $where
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     ORDER BY ptl.id DESC
     LIMIT $limit OFFSET $offset
 ";
@@ -618,6 +646,7 @@ $tests = $db->query($sql);
             <tr>
                 <td><?= $i++ ?></td>
 
+<<<<<<< HEAD
                 <td>
                     <?php if (!empty($row['patient_name'])): ?>
                         <?= htmlspecialchars($row['patient_name']) ?>
@@ -636,6 +665,15 @@ $tests = $db->query($sql);
                     <?php else: ?>
                         <span style="color:#6c757d;">POS</span>
                     <?php endif; ?>
+=======
+                <td><?= htmlspecialchars($row['patient_name']) ?></td>
+
+                <td><?= htmlspecialchars($row['hospital_num']) ?></td>
+                      <td>
+                    <?= $row['date_appointed']
+                        ? date('d M Y', strtotime($row['date_appointed']))
+                        : '-' ?>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                 </td>
 
                 <td><?= htmlspecialchars($row['test_name']) ?></td>

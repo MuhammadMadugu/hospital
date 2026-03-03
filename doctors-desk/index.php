@@ -80,11 +80,14 @@ $vitals = $db->query($sql);
   $run = $db->query($sql);
   while($row = $run->fetch_assoc())$myDrugs[] = $row;
 
+<<<<<<< HEAD
   $myScans = [];
   $sql = "SELECT * FROM scans WHERE status = 1 ORDER BY name ASC";
   $run = $db->query($sql);
   if($run) while($row = $run->fetch_assoc())$myScans[] = $row;
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
   $previous_appointments = [];
 
 $sql = "
@@ -181,6 +184,7 @@ while ($row = $run->fetch_assoc()) {
     $prescribed_tests[] = $row;
 }
 
+<<<<<<< HEAD
 // Fetch prescribed scans for this appointment
 $prescribed_scans = [];
 $sql = "
@@ -215,6 +219,12 @@ $sql = "
 ";
 $run = $db->query($sql);
 if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
+=======
+// $myTests now contains all lab tests for that appointment
+
+
+
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 ?>
 
@@ -259,7 +269,10 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                 </svg>
                 Back to Appointments
             </a>
+<<<<<<< HEAD
             <?php if($appointment['appointment_status'] != 2): ?>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
             <a href="complete_consultation.php?appointment_id=<?=$appointment_id?>" class="btn-primary">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -267,6 +280,7 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                 </svg>
                 Complete Consultation
             </a>
+<<<<<<< HEAD
             <?php endif; ?>
             <?php
             $activeAdmission = getActiveAdmission($patient_id);
@@ -282,6 +296,8 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
             <?php elseif($activeAdmission): ?>
                 <span style="background:#fef3c7;color:#92400e;padding:8px 16px;border-radius:10px;font-size:13px;font-weight:600;">Currently Admitted - <?= get('room_name','rooms',$activeAdmission['room_id']) ?>, Bed <?= $activeAdmission['bed_number'] ?></span>
             <?php endif; ?>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
         </div>
     </div>
 
@@ -294,6 +310,7 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                 <div class="card-header">
                     <h2>Patient Information</h2>
                     <div class="patient-status-badges">
+<<<<<<< HEAD
                         <?php if($appointment['appointment_status'] == 1): ?>
                             <span class="badge badge-primary">Active Consultation</span>
                         <?php elseif($appointment['appointment_status'] == 2): ?>
@@ -301,6 +318,15 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                         <?php else: ?>
                             <span class="badge badge-warning">Follow-up Required</span>
                         <?php endif; ?>
+=======
+                        <?php if($appointment['appointment_status'] == 1){
+                             ?>
+                                 <span class="badge badge-primary">Active Consultation</span>
+                        <?php }else{
+                             ?>
+                                <span class="badge badge-warning">Follow-up Required</span>
+                        <?php } ?>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                     
                      
                     </div>
@@ -563,6 +589,7 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <!-- Radiology Scans Section -->
                     <div class="form-section">
                         <div class="section-header">
@@ -603,6 +630,10 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
 
 
 
+=======
+                
+                    
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                 </div>
            
         </div>
@@ -776,6 +807,7 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
     </div>
 </div>
 
+<<<<<<< HEAD
 <!-- Prescribed Scans Card -->
 <div class="card">
     <div class="card-header">
@@ -918,6 +950,8 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
         </div>
     </div>
 </div>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
     <!-- Previous Appointments Card -->
   <div class="card">
@@ -936,7 +970,10 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                         <th>Diagnosis</th>
                         <th>Prescription / Drugs</th>
                         <th>Lab Tests</th>
+<<<<<<< HEAD
                         <th>Scans</th>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                         <th>Doctor</th>
                     </tr>
                 </thead>
@@ -955,7 +992,11 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                         </td>
                         <td>
                             <div class="prescription-cell">
+<<<<<<< HEAD
                                 <?php
+=======
+                                <?php 
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                                 // Fetch drugs for this appointment
                                 $drugs = [];
                                 $sql = "
@@ -968,10 +1009,17 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                                 $run = $db->query($sql);
                                 while($row = $run->fetch_assoc()) $drugs[] = $row;
 
+<<<<<<< HEAD
                                 foreach(array_slice($drugs, 0, 2) as $drug):
                                 ?>
                                     <span class="drug-tag">
                                         <?= htmlspecialchars($drug['drug_name']) ?> (<?= $drug['quantity'] ?>) - &#8358;<?= number_format($drug['amount']) ?>
+=======
+                                foreach(array_slice($drugs, 0, 2) as $drug): 
+                                ?>
+                                    <span class="drug-tag">
+                                        <?= htmlspecialchars($drug['drug_name']) ?> (<?= $drug['quantity'] ?>) - ₦<?= number_format($drug['amount']) ?>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                                     </span>
                                 <?php endforeach; ?>
                                 <?php if(count($drugs) > 2): ?>
@@ -981,11 +1029,19 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                         </td>
                         <td>
                             <div class="lab-cell">
+<<<<<<< HEAD
                                 <?php
                                 // Fetch lab tests for this appointment
                                 $tests = [];
                                 $sql = "
                                     SELECT t.name AS test_name, ptl.id AS testlist_id, ptl.status AS testlist_status
+=======
+                                <?php 
+                                // Fetch lab tests for this appointment
+                                $tests = [];
+                                $sql = "
+                                    SELECT t.name AS test_name
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                                     FROM patient_test pt
                                     JOIN test_lists ptl ON pt.id = ptl.patient_test_id
                                     JOIN tests t ON ptl.test_id = t.id
@@ -994,6 +1050,7 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                                 $run = $db->query($sql);
                                 while($row = $run->fetch_assoc()) $tests[] = $row;
 
+<<<<<<< HEAD
                                 foreach(array_slice($tests, 0, 2) as $test):
                                 ?>
                                     <?php if($test['testlist_status'] == 5 || $test['testlist_status'] == 7): ?>
@@ -1004,6 +1061,11 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                                     <?php else: ?>
                                         <span class="test-tag"><?= htmlspecialchars($test['test_name']) ?></span>
                                     <?php endif; ?>
+=======
+                                foreach(array_slice($tests, 0, 2) as $test): 
+                                ?>
+                                    <span class="test-tag"><?= htmlspecialchars($test['test_name']) ?></span>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                                 <?php endforeach; ?>
                                 <?php if(count($tests) > 2): ?>
                                     <span class="more-indicator">+<?= count($tests) - 2 ?> more</span>
@@ -1011,6 +1073,7 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                             </div>
                         </td>
                         <td>
+<<<<<<< HEAD
                             <div class="scan-cell">
                                 <?php
                                 // Fetch scans for this appointment
@@ -1045,6 +1108,11 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
                             <div class="doctor-cell">
                                 <div class="doctor-avatar-small"><?= strtoupper(substr($prev['doctor_name'] ?? '', 0, 2)) ?></div>
                                 <span><?= htmlspecialchars($prev['doctor_name'] ?? '-') ?></span>
+=======
+                            <div class="doctor-cell">
+                                <div class="doctor-avatar-small"><?= strtoupper(substr($prev['doctor_name'], 0, 2)) ?></div>
+                                <span><?= htmlspecialchars($prev['doctor_name']) ?></span>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                             </div>
                         </td>
                     </tr>
@@ -1285,6 +1353,7 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
     </div>
 </div>
 
+<<<<<<< HEAD
 <!-- Scan Modal -->
 <div class="modal-overlay" id="scanModal" style="display: none;">
     <div class="modal-container">
@@ -1360,6 +1429,8 @@ if($run) while ($row = $run->fetch_assoc()) $admission_history[] = $row;
     </div>
 </div>
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 <!-- Success Toast Notification -->
 <div class="toast-container" id="toastContainer"></div>
 

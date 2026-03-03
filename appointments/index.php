@@ -10,6 +10,7 @@ if (!isLoggedIn() || ($_SESSION['type'] != 0 AND $_SESSION['type'] != 5 AND $_SE
 $location = 'appointments';
 
 /* =========================
+<<<<<<< HEAD
    REVIEW WINDOW SETTINGS
 ========================= */
 $review_window_days = 0;
@@ -22,6 +23,8 @@ if ($hwQ && $hwQ->num_rows > 0) {
 }
 
 /* =========================
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
    FILTER & PAGINATION
 ========================= */
 $start_date = isset($_GET['start_date']) ? sanitize($_GET['start_date']) : '';
@@ -65,7 +68,11 @@ elseif (!empty($start_date) && !empty($end_date)) {
 
        $doctor_id = getId();
 
+<<<<<<< HEAD
        $sql = "SELECT room_id FROM assign_doctors WHERE doctor_id = '$doctor_id' AND status = 1";
+=======
+       $sql = "SELECT room_id FROM assign_doctor WHERE doctor_id = '$doctor_id' AND status = 1";
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
        $run = $db->query($sql);
        if($run->num_rows == 0){
          
@@ -80,7 +87,10 @@ elseif (!empty($start_date) && !empty($end_date)) {
        $room_id = $roomInfo['room_id'];
 
        $where .=" AND a.room_id = '$room_id'";
+<<<<<<< HEAD
        $where .=" AND (a.status = 1 OR a.status = 2)";
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 
 
@@ -425,6 +435,7 @@ $appointments = $db->query($sql);
                             : '-' ?>
                     </td>
                     <td>
+<<<<<<< HEAD
                         <?php if($row['status'] == -1): ?>
                             <span style="color:#c0392b;font-weight:600;">Pending Payment</span>
                         <?php elseif($row['status'] == 0): ?>
@@ -434,12 +445,18 @@ $appointments = $db->query($sql);
                         <?php elseif($row['status'] == 2): ?>
                             <span style="color:#0a7a0a;font-weight:600;">Completed</span>
                         <?php endif; ?>
+=======
+                        <?= $row['status'] == 0
+                            ? '<span style="color:#e67e22;font-weight:600;">Active</span>'
+                            : '<span style="color:#0a7a0a;font-weight:600;">Completed</span>' ?>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                     </td>
 
                     <td class="table-actions">
                         <a onclick="deleteAppointment(<?= $row['id'] ?>)"
                            class="delete-btn">Delete</a>
                     </td>
+<<<<<<< HEAD
                   <?php if(($_SESSION['type'] == 0 OR $_SESSION['type'] == 3) && ($row['status'] == 0 || $row['status'] == 1)): ?>
                     <td class="table-actions">
                         <a href="../doctors-desk/index.php?id=<?= $row['id'] ?>">Attend Patient</a>
@@ -470,6 +487,14 @@ $appointments = $db->query($sql);
                         <?php endif; ?>
                     </td>
                   <?php endif; ?>
+=======
+                  <?php if($_SESSION['type'] == 0 OR $_SESSION['type'] == 3){
+                     ?>
+                    <td class="table-actions">
+                        <a href="../doctors-desk/index.php?id=<?= $row['id'] ?>"> Attend Patient</a>
+                    </td>
+                  <?php } ?>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                  
                 </tr>
             <?php endwhile; ?>
@@ -516,6 +541,7 @@ function deleteAppointment(id) {
         }
     });
 }
+<<<<<<< HEAD
 
 function reviewRequiresPayment(appointmentId) {
     swal("Review Window Expired",
@@ -529,6 +555,8 @@ function reviewRequiresPayment(appointmentId) {
         }
     });
 }
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 </script>
 
 </body>

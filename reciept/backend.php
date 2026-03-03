@@ -1,7 +1,11 @@
 <?php
 include '../functions.php';
 
+<<<<<<< HEAD
 if (!isLoggedIn() || !in_array($_SESSION['type'], [0, 2, 5, 6, 7, 9])) {
+=======
+if (!isLoggedIn() || ($_SESSION['type'] != 0 AND $_SESSION['type'] != 7)) {
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     $_SESSION['error'] = 'Login To Continue';
     echo "<script>window.location.href='../login/index.php'</script>";
     exit;
@@ -93,7 +97,11 @@ while ($row = $labQ->fetch_assoc()) {
 
 
 }else if($purpose == 1){
+<<<<<<< HEAD
     $fileQ = $db->query( "SELECT
+=======
+    $fileQ = $db->query( "SELECT 
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
         ft.name AS name,
         'File' AS type,
         ft.amount AS price,
@@ -102,8 +110,13 @@ while ($row = $labQ->fetch_assoc()) {
     JOIN users u ON p.patient_id = u.id
     JOIN file_types ft ON u.file_type = ft.id
     WHERE u.id = '$patient_id'");
+<<<<<<< HEAD
 
 
+=======
+   
+    
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
     while ($row = $fileQ->fetch_assoc()) {
     $items[] = $row;
@@ -111,6 +124,7 @@ while ($row = $labQ->fetch_assoc()) {
 }
 
 
+<<<<<<< HEAD
 }else if($purpose == 4){
     // Admission billing item (individual per-item payment)
     $billingQ = $db->query("
@@ -155,9 +169,16 @@ while ($row = $labQ->fetch_assoc()) {
         'quantity' => 1
     ];
     $total_amount = (float)$payment['amount'];
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 }
 
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 ?>

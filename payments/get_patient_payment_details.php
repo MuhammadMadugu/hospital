@@ -4,7 +4,11 @@ include '../functions.php';
 
 header('Content-Type: application/json');
 
+<<<<<<< HEAD
 if (!isLoggedIn() || !in_array($_SESSION['type'], [0, 2, 6, 7, 9])) {
+=======
+if (!isLoggedIn() || ($_SESSION['type'] != 0 AND $_SESSION['type'] != 7)) {
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     echo json_encode(['success' => false, 'message' => 'Unauthorized']);
     exit;
 }
@@ -70,8 +74,12 @@ $appQ = $db->query("
         diagnosis
     FROM appointments
     WHERE patient_id = '$patient_id'
+<<<<<<< HEAD
     ORDER BY date_appointed DESC 
     LIMIT 1
+=======
+    ORDER BY date_appointed DESC
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 ");
 
 
@@ -128,6 +136,7 @@ while ($row = $labQ->fetch_assoc()) {
 }
 
 
+<<<<<<< HEAD
 
 }else if($purpose == 5){
 
@@ -173,6 +182,14 @@ $items[] = [
     'price' => $totalAmount
 ];
 $total_amount = (float)$totalAmount;
+=======
+while ($row = $labQ->fetch_assoc()) {
+    $items[] = $row;
+    $total_amount += (float)$row['price'];
+}
+
+
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 }
 

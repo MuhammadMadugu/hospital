@@ -38,10 +38,16 @@ $location = 'lab';
     $date = '';
 
     $sql = "
+<<<<<<< HEAD
     SELECT pt.user_id, pt.appointment_id, a.patient_id AS app_patient_id, a.doctor_id, pay.note AS payment_note
     FROM patient_test pt
     LEFT JOIN appointments a ON pt.appointment_id = a.id AND pt.appointment_id > 0
     LEFT JOIN payments pay ON pt.payment_id = pay.id
+=======
+    SELECT a.patient_id
+    FROM patient_test pt
+    JOIN appointments a ON pt.appointment_id = a.id
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     WHERE pt.id = '$patient_test'
     LIMIT 1
 ";
@@ -55,6 +61,7 @@ if ($run->num_rows == 0) {
 }
 
 $row = $run->fetch_assoc();
+<<<<<<< HEAD
 $patient_id = ($row['appointment_id'] > 0) ? $row['app_patient_id'] : $row['user_id'];
 $is_walkin = ($patient_id == 0);
 $walkin_name = '';
@@ -62,6 +69,10 @@ if ($is_walkin && !empty($row['payment_note'])) {
     $walkin_name = str_replace('POS Walk-In: ', '', $row['payment_note']);
 }
 $dr_name = $test_info['dr_name'] ?? ($row['doctor_id'] ? get("name","users",$row['doctor_id']) : 'POS');
+=======
+$patient_id = $row['patient_id'];
+$dr_name = $test_info['dr_name'] ?? get("name","users",$row['doctor_id']);
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 
 
@@ -986,7 +997,11 @@ $hospital = $run->fetch_assoc();
     <!-- LAB HEADER -->
     <div class="lab-header">
         <div class="lab-logo-container">
+<<<<<<< HEAD
             <img src="<?= ROOT_URL ?>images/logo.png" class="lab-logo">
+=======
+            <img src="<?= ROOT_URL ?>images/logos/<?=$hospital['logo']?>" class="lab-logo">
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
             <div class="lab-title-container">
                 <h1 class="lab-title-main">
                    <?=$hospital['name']?>
@@ -1009,6 +1024,7 @@ $hospital = $run->fetch_assoc();
         <table class="medical-form-table">
             <tr>
                 <th>Name</th>
+<<<<<<< HEAD
                 <td><?= $is_walkin ? htmlspecialchars($walkin_name) . ' <small style="color:#e67e22;">(Walk-in)</small>' : get('name','users',$patient_id) ?></td>
                 <th>GSM</th>
                 <td><?= $is_walkin ? '-' : get('phone','users',$patient_id) ?></td>
@@ -1020,12 +1036,25 @@ $hospital = $run->fetch_assoc();
                         <?= get('gender','users',$patient_id) == '1' ? 'Male' : 'Female' ?>
                         / <?= get('age','users',$patient_id) ?>
                     <?php endif; ?>
+=======
+                <td><?= get('name','users',$patient_id) ?></td>
+                <th>GSM</th>
+                <td><?= get('phone','users',$patient_id) ?></td>
+                <th>Sex / Age</th>
+                <td>
+                    <?= get('gender','users',$patient_id) == '1' ? 'Male' : 'Female' ?>
+                    / <?= get('age','users',$patient_id) ?>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                 </td>
             </tr>
 
             <tr>
                 <th>Hospital No</th>
+<<<<<<< HEAD
                 <td><?= $is_walkin ? '-' : get('hospital_num','users',$patient_id) ?></td>
+=======
+                <td><?=  get('hospital_num','users',$patient_id)  ?></td>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                 <th>Lab No</th>
                 <td><?= $labno ?></td>
                 <th>Doctor</th>

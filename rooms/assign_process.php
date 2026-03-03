@@ -46,7 +46,11 @@ if ($checkDoctor->num_rows == 0) {
 ========================= */
 $db->query("
     UPDATE assign_doctors
+<<<<<<< HEAD
     SET status = -1,ended_at = '$today'
+=======
+    SET status = -1,ended_date = '$today';
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     WHERE room_id = '$room_id' AND status = 1
 ");
 

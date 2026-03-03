@@ -28,5 +28,9 @@ if (!$run) {
 }
 
 $_SESSION['success'] = "Drug deleted successfully!";
+<<<<<<< HEAD
 header('Location: view.php'); // Redirect back to drugs list
+=======
+header('Location: viewx.php'); // Redirect back to drugs list
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 exit;

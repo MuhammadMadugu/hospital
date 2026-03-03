@@ -9,7 +9,11 @@ if (!isLoggedIn() || ($_SESSION['type'] != 0 AND $_SESSION['type'] != 7)) {
 
 $location = 'payments';
 
+<<<<<<< HEAD
 
+=======
+$status = !empty($_GET['status']) ? sanitize($_GET['status']) : 0;
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 /* =========================
    FILTER & PAGINATION
@@ -25,6 +29,7 @@ $offset = ($page - 1) * $limit;
 /* =========================
    WHERE CLAUSE (DATE LOGIC)
 ========================= */
+<<<<<<< HEAD
 
 $status = isset($_GET['status']) && $_GET['status'] !== '' 
     ? sanitize($_GET['status']) 
@@ -35,6 +40,9 @@ $where = "WHERE 1=1";
 if ($status !== null) {
     $where .= " AND p.status = '$status'";
 }
+=======
+$where = "WHERE p.status = '$status'";
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 if (empty($start_date) && empty($end_date)) {
     $today = date('Y-m-d');
@@ -52,6 +60,7 @@ if (!empty($search)) {
     $where .= " AND (u.name LIKE '%$search%' OR u.phone LIKE '%$search%' OR p.reciept_num LIKE '%$search%')";
 }
 
+<<<<<<< HEAD
 
 
 /* =========================
@@ -71,6 +80,8 @@ $summarySql = "
 ";
 $summary = $db->query($summarySql)->fetch_assoc();
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 $filterText = "Payments";
 
 if (empty($start_date) && empty($end_date)) {
@@ -122,9 +133,12 @@ $totalPages = ceil($totalRows / $limit);
 
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 $payments = $db->query($sql);
 
 ?>
@@ -321,6 +335,7 @@ $payments = $db->query($sql);
     border-collapse: collapse;
 }
 
+<<<<<<< HEAD
 .summary-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -342,6 +357,8 @@ $payments = $db->query($sql);
 .border-rejected { border-left-color: #e74c3c; }/* Red */
 .border-method { border-left-color: #3498db; }  /* Blue */
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 </style>
 </head>
@@ -361,6 +378,7 @@ $payments = $db->query($sql);
 
     <div class="card-body" style="padding:24px;">
 
+<<<<<<< HEAD
         <div class="summary-container">
     <?php if ($status === null): // Only show status cards if no specific status is filtered ?>
         <div class="stat-card border-pending">
@@ -391,6 +409,8 @@ $payments = $db->query($sql);
     </div>
 </div>
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
         <!-- DATE FILTER -->
             <!-- DATE FILTER -->
         <div class="search-section" style="margin-bottom: 24px;">
@@ -497,6 +517,7 @@ $payments = $db->query($sql);
                             ? '<span class="status-pending">Pending</span>'
                             : '<span class="status-paid">Paid</span>' ?>
                     </td>
+<<<<<<< HEAD
                 <?php if($row['status'] == 0 OR $row['status'] == -1){
                       ?>
                           <td class="table-actions">
@@ -515,6 +536,14 @@ $payments = $db->query($sql);
                         </a>
                     </td>
                 <?php } ?>
+=======
+                    <td class="table-actions">
+                        <a onclick="open_modal(<?= $row['id'] ?>)" class="modal_btn">View Payment</a>
+                    </td>
+                      <td class="table-actions">
+                        <a  href="../reciept/index.php?id=<?=$row['id']?>" class="modal_btn">View Reciept</a>
+                    </td>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                 </tr>
                 <?php endwhile; ?>
             </tbody>
@@ -526,7 +555,11 @@ $payments = $db->query($sql);
             <ul style="list-style:none;display:flex;gap:8px;padding:0;">
                 <?php for ($p=1;$p<=$totalPages;$p++): ?>
                 <li>
+<<<<<<< HEAD
                     <a href="?page=<?= $p ?>&start_date=<?= urlencode($start_date) ?>&end_date=<?= urlencode($end_date) ?>&search=<?= urlencode($search) ?>&status=<?=$status?>"
+=======
+                    <a href="?page=<?= $p ?>&start_date=<?= urlencode($start_date) ?>&end_date=<?= urlencode($end_date) ?>&search=<?= urlencode($search) ?>"
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                        style="padding:8px 14px;border:1px solid #ddd;border-radius:6px;
                        <?= $p==$page?'background:#007bff;color:#fff;':'' ?>">
                        <?= $p ?>
@@ -906,8 +939,13 @@ function displayPaymentModal(data) {
                 <label>Payment Method</label>
                 <select id="paymentMethod" class="form-control">
                     <option value="Cash">Cash</option>
+<<<<<<< HEAD
                     <option value="POS">POS</option>
                     <option value="Transfer">Transfer</option>
+=======
+                    <option value="Card">Card</option>
+                    <option value="Insurance">Insurance</option>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                 </select>
             </div>
             ${lastPaymentHtml}
@@ -951,7 +989,11 @@ function submitPayment() {
         if (data.success) {
             alert('Payment successful!');
             closeModal();
+<<<<<<< HEAD
             window.location.href = '../reciept/index.php?id='+currentPaymentId; // refresh page to show updated payment
+=======
+            window.location.href = '../reciept/index.php?id'+currentPaymentId; // refresh page to show updated payment
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
         } else {
             alert('Payment failed: ' + data.error);
         }

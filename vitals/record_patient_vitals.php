@@ -81,8 +81,11 @@ $vitals = $db->query($sql);
   
    while($row = $run->fetch_assoc())$rooms[] = $row;
 
+<<<<<<< HEAD
    
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 
 ?>

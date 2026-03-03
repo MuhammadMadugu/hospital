@@ -11,7 +11,11 @@
     <div class="receipt">
       <div class="receipt-header">
         <div class="logo-container">
+<<<<<<< HEAD
           <img src="<?=ROOT_URL?>images/logo.png" class="logo" alt="<?=$hospital['name']?>">
+=======
+          <img src="<?=ROOT_URL?>images/logos/<?=$hospital['logo']?>" class="logo" alt="<?=$hospital['name']?>">
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
         </div>
         <div class="store-name"><?=$hospital['name']?></div>
         <div class="store-tagline"><?=$hospital['address']?></div>
@@ -34,7 +38,11 @@
             </div>
             <div class="info-item">
               <span class="info-label">Customer</span>
+<<<<<<< HEAD
               <span class="info-value"><?= $payment['patient_id'] > 0 ? get('name','users',$payment['patient_id']) : ($payment['note'] ?: 'Walk-In Customer') ?></span>
+=======
+              <span class="info-value"><?= get('name','users',$payment['patient_id']) ?></span>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
             </div>
             <div class="info-item">
               <span class="info-label">Payment Method</span>
@@ -56,7 +64,11 @@
         </div>
         
         <div class="items-section">
+<<<<<<< HEAD
           <div class="section-title">Items</div>
+=======
+          <div class="section-title">Items Items</div>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
           <table class="items-table">
             <thead>
               <tr>

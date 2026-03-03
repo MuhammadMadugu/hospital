@@ -23,7 +23,10 @@
                     </summary>
                     <div class="dropdown-content">
                         <a href="<?=ROOT_URL?>settings/" class="dropdown-item">Hospital Settings</a>
+<<<<<<< HEAD
                         <a href="<?=ROOT_URL?>consultation-fee/" class="dropdown-item">Consultation Fee</a>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                         <a href="<?=ROOT_URL?>staff/" class="dropdown-item">New Staff</a>
                         <a href="<?=ROOT_URL?>staff/view.php" class="dropdown-item">View Staff</a>
                     </div>
@@ -109,7 +112,11 @@
              <?php } ?>
 
           
+<<<<<<< HEAD
              <?php if($_SESSION['type'] == 0 OR $_SESSION['type']==5 OR $_SESSION['type'] == 3){
+=======
+             <?php if($_SESSION['type'] == 0 OR $_SESSION['type']==5){
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                  ?>
                        <details>
                     <summary  class="<?=$location=='appointments' ? 'active-link' : ''?>">
@@ -128,10 +135,14 @@
         </svg>
                     </summary>
                     <div class="dropdown-content">
+<<<<<<< HEAD
                         <?php if($_SESSION['type']!=3){
                             ?>
                             <a href="<?=ROOT_URL?>patient/view.php" class="dropdown-item">Book Appointment</a>
                         <?php } ?>
+=======
+                        <a href="<?=ROOT_URL?>patient/view.php" class="dropdown-item">Book Appointment</a>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                         <a href="<?=ROOT_URL?>appointments/index.php" class="dropdown-item">View Appointments</a>
                     </div>
                 </details>
@@ -155,6 +166,7 @@
                 </details>
              <?php } ?>
 
+<<<<<<< HEAD
              <?php if($_SESSION['type'] == 0 OR $_SESSION['type'] == 3 OR $_SESSION['type'] == 4){ ?>
                 <details>
                     <summary class="<?=$location=='admission' ? 'active-link' : ''?>">
@@ -178,6 +190,8 @@
                     </div>
                 </details>
              <?php } ?>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
                   <?php if($_SESSION['type'] == 0 OR $_SESSION['type'] == 7){
                 ?>
@@ -205,7 +219,11 @@
         <a href="<?=ROOT_URL?>payments/?status=0" class="dropdown-item">Pending</a>
         <a href="<?=ROOT_URL?>payments/?status=1" class="dropdown-item">Paid</a>
         <a href="<?=ROOT_URL?>payments/?status=-1" class="dropdown-item">Rejected</a>
+<<<<<<< HEAD
         <a href="<?=ROOT_URL?>payments/" class="dropdown-item">Record</a>
+=======
+        <a href="<?=ROOT_URL?>payments/view.php" class="dropdown-item">Record</a>
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     </div>
 </details>
 
@@ -244,9 +262,12 @@
 
                     <a href="<?=ROOT_URL?>prescriptions/" class="dropdown-item">Prescriptions</a>
                     <a href="<?=ROOT_URL?>prescriptions/dispensed.php" class="dropdown-item">Dispensed Drugs Report</a>
+<<<<<<< HEAD
 
                     <a href="<?=ROOT_URL?>pharmacy-pos/" class="dropdown-item">POS - Drug Sales</a>
                     <a href="<?=ROOT_URL?>pharmacy-pos/sales_history.php" class="dropdown-item">POS Sales History</a>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                 </div>
             </details>
              <?php } ?>
@@ -272,12 +293,16 @@
                         <a href="<?=ROOT_URL?>lab/index.php?status=4" class="dropdown-item">Results Verification</a>
                         <a href="<?=ROOT_URL?>lab/index.php?status=5" class="dropdown-item">Print Result</a>
                         <a href="<?=ROOT_URL?>lab/index.php" class="dropdown-item">Lab Tracker</a>
+<<<<<<< HEAD
                         <a href="<?=ROOT_URL?>lab-pos/" class="dropdown-item">POS - Direct Lab Testing</a>
                         <a href="<?=ROOT_URL?>lab-pos/history.php" class="dropdown-item">POS Test History</a>
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
                    </div>
 
                 </details>
            <?php } ?>
+<<<<<<< HEAD
 
            <?php if($_SESSION['type'] == 0 OR $_SESSION['type'] == 9){ ?>
                 <details>
@@ -306,6 +331,9 @@
                 </details>
            <?php } ?>
 
+=======
+             
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
             </div>
 
             <div style="margin-top: 20px; border-top: 1px solid #1e293b; padding-top: 20px;">

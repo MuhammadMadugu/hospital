@@ -420,9 +420,12 @@ function getPurpose($purpose){
     if($purpose == 1)return 'Form Purchase';
     else  if($purpose == 2)return 'For Drugs';
      else  if($purpose == 3)return 'For Laboratory';
+<<<<<<< HEAD
      else  if($purpose == 4)return 'For Admission';
      else  if($purpose == 5)return 'For Radiology';
      else  if($purpose == 6)return 'Consultation Fee';
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
      else return 'Unknown';
 }
 
@@ -455,10 +458,14 @@ function shortName($name) {
 function get_purpose($status){
   if($status == 1)return 'Form Purchase';
   else  if($status == 2)return 'Drugs Purchase';
+<<<<<<< HEAD
   else  if($status == 3)return 'Laboratory';
   else  if($status == 4)return 'Admission';
   else  if($status == 5)return 'Radiology';
   else  if($status == 6)return 'Consultation';
+=======
+  else  if($status == 3)return 'Laboratory ';
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 }
 
 function get_payment_status_badge($status){
@@ -493,11 +500,16 @@ function get_status($status)
     $txt = 'result has been given to patient';
   }
 
+<<<<<<< HEAD
        return $txt;
+=======
+       return $txt; 
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 }
 
 
+<<<<<<< HEAD
 // ===================== RADIOLOGY FUNCTIONS =====================
 
 function get_scan_status($status){
@@ -584,6 +596,8 @@ function processRoomBilling($admission_id){
         $db->query("UPDATE admissions SET last_billed_at = '".$new_last_billed->format('Y-m-d H:i:s')."' WHERE id = '$admission_id'");
     }
 }
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 
 
 

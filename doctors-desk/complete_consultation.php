@@ -43,7 +43,11 @@ $appointment = $appointmentCheck->fetch_assoc();
 /* =========================
    CHECK APPOINTMENT STATUS
 ========================= */
+<<<<<<< HEAD
 if ($appointment['status'] == 2) {
+=======
+if ($appointment['status'] != 1) {
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     $_SESSION['error'] = 'Appointment already closed';
     echo "<script>window.history.back()</script>";
     exit;
@@ -86,8 +90,12 @@ if ($user_type == 3) {
 $update = $db->query("
     UPDATE appointments
     SET status=2,
+<<<<<<< HEAD
         doctor_id='$user_id',
         date_ended = NOW()
+=======
+        doctor_id='$user_id'
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
     WHERE id='$appointment_id'
 ");
 

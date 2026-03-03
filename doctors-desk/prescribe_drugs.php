@@ -156,6 +156,7 @@ foreach($drugs as $d){
     $db->query("UPDATE pharmacy_stock SET quantity = quantity - $qty WHERE drug='$drug_id'");
 }
 
+<<<<<<< HEAD
 // If patient has active admission, auto-add drug costs to admission billing
 $activeAdmission = getActiveAdmission($patient_id);
 if ($activeAdmission) {
@@ -173,6 +174,8 @@ if ($activeAdmission) {
     }
 }
 
+=======
+>>>>>>> ebc253a72e4a128f805e4199017270518a535eb5
 echo json_encode(['status'=>'success','message'=>'Prescription sent to pharmacy successfully']);
 exit;
 ?>
